@@ -1,6 +1,5 @@
 export interface IClaim {
   id: string;
-  name: string;
   policyId: string;
   approved: boolean;
   amount: number;
@@ -11,11 +10,11 @@ export interface IPolicy {
   name: string;
   price: number;
   createdAt: Date;
-  age:number
+  age: number;
 }
 
-
-export interface IGenericPayload{
-    id?:string
-    amount?:number
+export interface IGenericPayload {
+  id?: string;
+  amount?: number;
+  policyId?: string;
 }
