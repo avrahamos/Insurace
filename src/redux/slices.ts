@@ -1,17 +1,22 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IGenericPayload } from "../types/redux";
 
 const treasurSlice = createSlice({
   name: "treasur",
   initialState: 7500,
   reducers: {
-    addNewPolici: (state:number, action: PayloadAction) => {
-        
+    addNewPolici: (state: number, action: PayloadAction<IGenericPayload>) => {
+      state += action.payload.amount!;
     },
-    deletePolici: (state, action: PayloadAction) => {},
-    updatePolici: (state, action: PayloadAction) => {},
-    addNewClaim: (state, action: PayloadAction) => {},
-    deleteClaim: (state, action: PayloadAction) => {},
-    updateClaim: (state, action: PayloadAction) => {},
-    approveClaim: (state, action: PayloadAction) => {},
+    deletePolici: (state: number, action: PayloadAction<IGenericPayload>) => {
+      state -= action.payload.amount!;
+    },
+    updatePolici: (state, action: PayloadAction<IGenericPayload>) => {
+      state += action.payload.amount!;
+    },
+    // addNewClaim: (state, action: PayloadAction<IGenericPayload>) => {},
+    approveClaim: (state, action: PayloadAction<IGenericPayload>) => {
+      state -= action.payload.amount!;
+    },
   },
 });

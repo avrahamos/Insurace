@@ -15,3 +15,7 @@ export interface IPolicy {
 }
 
 
+export interface IGenericPayload{
+    id?:string
+    amount?:number
+}
